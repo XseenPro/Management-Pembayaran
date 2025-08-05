@@ -1,0 +1,9 @@
+body {
+    background-color: #f0f0f0; /* Ganti warna latar belakang halaman */
+}
+
+.fi-simple-main .fi-simple-header-brand img {
+    border: 5px solid red; /* Tambahkan garis merah tebal pada logo */
+    width: 120px;
+    height: auto;
+}
