@@ -10,13 +10,13 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libonig-dev \
     libxml2-dev \
+    && docker-php-ext-configure intl \
     && docker-php-ext-install \
     pdo \
     pdo_mysql \
     zip \
     intl \
     mbstring \
-    tokenizer \
     xml \
     opcache
 
@@ -35,8 +35,6 @@ RUN composer install --optimize-autoloader --no-dev
 # Laravel permissions
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Expose port
 EXPOSE 8000
 
-# Start Laravel using php artisan serve
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
